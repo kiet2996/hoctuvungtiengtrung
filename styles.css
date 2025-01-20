@@ -1,0 +1,272 @@
+/* Cấu trúc cơ bản */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+/* Thanh điều hướng */
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+nav a.active {
+    background-color: #4CAF50;
+}
+
+/* Các trang */
+.container {
+    padding: 20px;
+    display: none;
+}
+
+.container.active {
+    display: block;
+}
+
+/* Bảng từ vựng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+td button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+td button:hover {
+    background-color: #45a049;
+}
+
+input[type="text"], select {
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+/* Nút Tải Lên */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Flashcards */
+#flashcards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Giãn cách các flashcard */
+    padding: 20px;
+}
+
+.flashcard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 18px;  /* Kích thước chữ */
+    color: #333;
+    width: auto;  /* Chiều rộng tự động */
+    min-width: 150px; /* Chiều rộng tối thiểu */
+    max-width: 250px; /* Chiều rộng tối đa */
+    height: auto;  /* Chiều cao tự động */
+    min-height: 100px; /* Chiều cao tối thiểu */
+    margin: 10px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.flashcard:hover {
+    transform: scale(1.05); /* Hiệu ứng khi hover */
+}
+
+/* Khi flip flashcard */
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.flashcard-front, .flashcard-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.flashcard-back {
+    display: none;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.flashcard.flipped .flashcard-front {
+    display: none;
+}
+
+.flashcard.flipped .flashcard-back {
+    display: flex;
+}
+
+/* Điều chỉnh các nút */
+#prev-flashcard, #next-flashcard {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+#prev-flashcard:hover, #next-flashcard:hover {
+    background-color: #45a049;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #flashcards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flashcard {
+        width: 90%;  /* Điều chỉnh chiều rộng trên thiết bị di động */
+        min-width: 200px;
+    }
+}
+
+
+/* Quiz */
+#quiz-container {
+    margin-top: 20px;
+}
+
+#quiz-options {
+    display: flex;
+    flex-direction: column;
+}
+
+#quiz-options button {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;  /* Đặt màu chữ đen cho các lựa chọn trong quiz */
+}
+
+#quiz-options button:hover {
+    background-color: #ddd;
+}
+
+#start-quiz-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#start-quiz-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    table, input, select {
+        width: 100%;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        float: none;
+        display: inline-block;
+        margin: 0;
+    }
+
+    #flashcards-container {
+        width: 200px;  /* Thu nhỏ flashcard cho các thiết bị di động */
+        height: 250px;
+    }
+}

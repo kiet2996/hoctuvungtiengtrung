@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Từ Vựng Tiếng Trung</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Học Từ Vựng Tiếng Trung</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showPage('upload-page')">Tải Lên</a>
+        <a href="#" onclick="showPage('vocab-page')">Từ Vựng</a>
+        <a href="#" onclick="showPage('quiz-page')">Bài Kiểm Tra</a>
+        <a href="#" onclick="showPage('flashcard-page')">Flashcard</a>
+    </nav>
+
+    <div id="upload-page" class="container active">
+        <h2>Tải Lên Từ Vựng</h2>
+        <input type="file" id="file-input-upload" accept=".xlsx, .xls" onchange="handleFileUpload()">
+        <button onclick="handleFileUpload()">Tải Lên</button>
+        <p id="upload-status"></p>
+    </div>
+
+    <div id="vocab-page" class="container">
+        <h2>Danh sách từ vựng</h2>
+        <input type="text" id="search-vocab" placeholder="Tìm kiếm từ vựng" oninput="renderVocabList()" />
+        <select id="hsk-sort" onchange="renderVocabList()">
+            <option value="all">Tất cả</option>
+            <option value="HSK1">HSK1</option>
+            <option value="HSK2">HSK2</option>
+            <option value="HSK3">HSK3</option>
+            <option value="HSK4">HSK4</option>
+            <option value="HSK5">HSK5</option>
+            <option value="HSK6">HSK6</option>
+        </select>
+        <table id="vocab-table">
+            <thead>
+                <tr>
+                    <th>Tiếng Trung</th>
+                    <th>Pinyin</th>
+                    <th>Tiếng Việt</th>
+                    <th>HSK</th>
+                    <th>Trạng thái học</th>
+                    <th>Ví dụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Từ vựng sẽ được hiển thị ở đây -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="quiz-page" class="container">
+        <h2>Bài Kiểm Tra Từ Vựng</h2>
+        <div id="quiz-container" style="display:none;">
+            <p id="quiz-question"></p>
+            <div id="quiz-options"></div>
+            <p id="timer"></p>
+            <p id="question-status"></p>
+        </div>
+        <button id="start-quiz-btn" onclick="startQuiz()">Bắt đầu Quiz</button>
+    </div>
+
+    <div id="flashcard-page" class="container">
+        <h2>Flashcards</h2>
+        <div id="flashcards-container">
+            <p>Chưa có từ vựng nào. Tải lên từ vựng để bắt đầu!</p>
+        </div>
+        <button id="prev-flashcard" onclick="prevFlashcard()">Trước</button>
+        <button id="next-flashcard" onclick="nextFlashcard()">Tiếp</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
